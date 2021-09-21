@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI</title>
+    <script>
+            
+        document.addEventListener("DOMContentLoaded",function(){
+        
+       
+            document.querySelector("form").onsubmit=function()
+            {
+                var weight= document.querySelector("#weight").value;
+                var height=document.querySelector("#height").value; 
+                var  BMI=(weight)/(height/100)^2;
+                document.querySelector("h1").innerHTML=BMI;
+                document.querySelector("h2").onclick=condition();
+                function condition()
+                {  
+                     if (BMI.toFixed(1)<18.5)
+                {  
+                document.querySelector("h2").innerHTML= "Under Normal Weight";
+                } 
+                 else if ((BMI.toFixed(1)>18.5) && (BMI.toFixed(1)<25) )
+                {
+                document.querySelector("h2").innerHTML= "Normal";
+                }
+                else
+                {
+                    document.querySelector("h2").innerHTML= "Over Weight";
+                }
+            }
+            return false; 
+        
+            } 
+         })
+                   
+    </script>
+</head>
+<body>
+    <form>
+        <input style="font-size: x-large;" type="number" placeholder="Enter Your Weight in Kg" id="weight">
+        <input style="font-size: x-large;" type="number" placeholder="Enter Your Height in Cm" id="height">
+        <input style="font-size: x-large;" type="submit" value="result">
+    </form>
+    <h1></h1>
+    <h2></h2>
+</body>
+</html>
